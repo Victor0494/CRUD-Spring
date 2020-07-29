@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.crud.models.Contato;
 import com.crud.repository.ContatoRepository;
@@ -26,7 +27,18 @@ public class ContatoController {
 		
 		er.save(contato);
 		
-		return "redirect:/cadastrarContato";
+		return "redirect:/contatos";
+		
+	}
+	
+	@RequestMapping("/contatos")
+	public ModelAndView listaContatos() {
+		ModelAndView mv = new ModelAndView("/index.html");
+		Iterable<Contato> contatos = er.findAll();
+		mv.addObject("contatos", contatos);
+		
+		return mv;
+		
 		
 	}
 }
