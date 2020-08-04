@@ -3,13 +3,18 @@ package com.crud.models;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotEmpty;
+
 
 @Entity
 public class Produto {
 
 	@Id
+	@NotEmpty
 	private int codigo;
+	@NotEmpty
 	private String descricao;
+	@NotEmpty
 	private float preco;
 
 	@ManyToOne

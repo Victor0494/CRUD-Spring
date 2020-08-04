@@ -29,13 +29,29 @@
 			<p>Idade: <span th:text="${usuario.idade}"></span></p>
 			<p>Data de Cadastro:<span th:text="${usuario.dataCadastro}"></span></p>
 		</div>
+		
+		<th:block th:include="mensagemValidacao"></th:block>
 		<form method="post">
 			Codigo do produto:<input type="text" value="" name="codigo"/>
-			Descrição do produto<input type="text" value="" name="descricao"/>
+			Descricao do produto<input type="text" value="" name="descricao"/>
 			Preco do produto<input type="text" value="" name="preco"/>
 			<button class="waves-effect waves-light btn" type="submit">Adicionar</button>
-		
 		</form>
+		<h5>Lista de Produtos</h5>
+		<div class="container" th:each="produto : ${produtos}">
+		
+			<div class="row">
+				<div class="input-field col s3">
+					Codigo:<p><span th:text="${produto.codigo}"></span></p>
+				</div>
+				<div class="input-field col s3">
+					Preco:<p><span th:text="${produto.preco}"></span></p>
+				</div>
+				<div class="input-field col s3">
+					Descricao:<p><span th:text="${produto.descricao}"></span></p>
+				</div>
+			</div>
+		</div>
 	
 	
 	</div>
