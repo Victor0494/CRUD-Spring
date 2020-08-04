@@ -1,10 +1,13 @@
 package com.crud.models;
 
 import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Contato implements Serializable {
@@ -19,6 +22,9 @@ public class Contato implements Serializable {
 	private String nome;
 	private int idade;
 	private String dataCadastro;
+	
+	@OneToMany
+	private List<Produto> produtos;
 
 	
 	public long getCodigo() {
@@ -60,5 +66,6 @@ public class Contato implements Serializable {
 	public void setDataCadastro(String dataCadastro) {
 		this.dataCadastro = dataCadastro;
 	}
+
 
 }
