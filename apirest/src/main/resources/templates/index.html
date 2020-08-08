@@ -10,6 +10,8 @@
 
 <!--Import materialize.css-->
 <link type="text/css" rel="stylesheet"
+	href="style/style.css" />
+<link type="text/css" rel="stylesheet"
 	href="materialize/css/materialize.min.css" media="screen,projection" />
 
 <!--Let browser know website is optimized for mobile-->
@@ -17,12 +19,18 @@
 </head>
 
 <body>
-	<h1>Lista de Clientes</h1>
-	<h3>
-		<a href="/cadastrarContato" class="waves-effect waves-light btn"><i
-			class="material-icons left">add_circle_outline</i>Cadastrar Cliente</a>
-	</h3>
-	<table class="container">
+	<header id="header">	  	
+	  	<nav>
+		    <div class="nav-wrapper">
+		      <ul id="nav-mobile" class="left hide-on-med-and-down">
+		        <li><a href="/contatos">Lista de Clientes</a></li>
+		        <li><a href="/cadastrarContato">Cadastrar Cliente</a></li>
+		      </ul>
+		    </div>
+  		</nav>
+	</header>
+	
+	<table class="container" id="list_id">
 		<thead>
 			<tr>
 				<th>Nome</th>

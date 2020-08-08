@@ -6,6 +6,10 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+
 
 @Entity
 public class Contato implements Serializable {
@@ -14,19 +18,29 @@ public class Contato implements Serializable {
 	
 	
 	@Id
+	@NotNull
 	private long id;
+	
+	@NotEmpty
 	private String nome;
+	
+	@NotNull
 	private int idade;
+	
+	@NotEmpty
 	private String dataCadastro;
 	
 	@OneToMany
 	private List<Produto> produtos;
 
+	
+
+	
 	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

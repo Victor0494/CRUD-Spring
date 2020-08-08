@@ -31,13 +31,15 @@ public class ContatoController {
 
 	}
 
-	@RequestMapping(value = "/cadastrarContato", method = RequestMethod.POST)
-	public String form(Contato contato) {
-
+	@RequestMapping(value="/cadastrarContato", method = RequestMethod.POST)
+	public String form(@Valid Contato contato, BindingResult result, RedirectAttributes attributes) {
+		if(result.hasErrors()) {
+			attributes.addFlashAttribute("mensagem", "Ocorreu um erro.");
+			return "redirect:/cadastrarContato";
+		}
 		er.save(contato);
-
+		attributes.addFlashAttribute("message", "Usuário cadastrado com sucesso.");
 		return "redirect:/contatos";
-
 	}
 
 	@RequestMapping("/contatos")

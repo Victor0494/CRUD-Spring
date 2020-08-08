@@ -4,17 +4,18 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 
 @Entity
 public class Produto {
 
 	@Id
-	@NotEmpty
+	@NotNull
 	private int codigo;
 	@NotEmpty
 	private String descricao;
-	@NotEmpty
+	@NotNull
 	private float preco;
 
 	@ManyToOne
