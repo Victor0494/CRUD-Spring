@@ -19,7 +19,7 @@ public class Contato implements Serializable {
 	
 	@Id
 	@NotNull
-	private long id;
+	private String cpf;	
 	
 	@NotEmpty
 	private String nome;
@@ -28,20 +28,23 @@ public class Contato implements Serializable {
 	private int idade;
 	
 	@NotEmpty
-	private String dataCadastro;
+	private int dataNascimento;
+	
+	@NotEmpty
+	private String endereco;
+	
+	@NotNull
+	private long telefone;
 	
 	@OneToMany
 	private List<Produto> produtos;
 
-	
-
-	
-	public long getId() {
-		return id;
+	public String getCpf() {
+		return cpf;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
 	public String getNome() {
@@ -60,13 +63,39 @@ public class Contato implements Serializable {
 		this.idade = idade;
 	}
 
-	public String getDataCadastro() {
-		return dataCadastro;
+	public int getDataNascimento() {
+		return dataNascimento;
 	}
 
-	public void setDataCadastro(String dataCadastro) {
-		this.dataCadastro = dataCadastro;
+	public void setDataNascimento(int dataNascimento) {
+		this.dataNascimento = dataNascimento;
 	}
+
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+
+	public long getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(long telefone) {
+		this.telefone = telefone;
+	}
+
+	public List<Produto> getProdutos() {
+		return produtos;
+	}
+
+	public void setProdutos(List<Produto> produtos) {
+		this.produtos = produtos;
+	}
+
+	
 
 
 }

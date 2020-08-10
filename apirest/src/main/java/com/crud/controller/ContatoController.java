@@ -52,9 +52,9 @@ public class ContatoController {
 
 	}
 	
-	@RequestMapping(value="/{id}", method=RequestMethod.GET)
-	public ModelAndView detalhesCliente(@PathVariable("id") long id) {
-		Contato user = er.findById(id);
+	@RequestMapping(value="/{cpf}", method=RequestMethod.GET)
+	public ModelAndView detalhesCliente(@PathVariable("cpf") String cpf) {
+		Contato user = er.findByCpf(cpf);
 		ModelAndView mv = new ModelAndView("contato/detalhesCliente");
 		mv.addObject("contatos", user);
 		
@@ -65,17 +65,17 @@ public class ContatoController {
 		
 	}
 	
-	@RequestMapping(value="/{id}", method=RequestMethod.POST)
-	public String detalhesClientePost(@PathVariable("id") long id, @Valid Produto produtos, BindingResult result, RedirectAttributes attributes) {
+	@RequestMapping(value="/{cpf}", method=RequestMethod.POST)
+	public String detalhesClientePost(@PathVariable("cpf") String cpf, @Valid Produto produtos, BindingResult result, RedirectAttributes attributes) {
 		if (result.hasErrors()) {
 			attributes.addAttribute("mensagem", "Valor Inválido");// Validar a exibição da mensagem que não esta sendo exibida em tela
-			return "redirect:/{id}";
+			return "redirect:/{cpf}";
 		}
-		Contato contato = er.findById(id);
+		Contato contato = er.findByCpf(cpf);
 		produtos.setContato(contato);
 		cr.save(produtos);
 		attributes.addAttribute("mensagem", "Produto adicionado com sucesso");
-		return "redirect:/{id}";
+		return "redirect:/{cpf}";
 		
 	}
 }

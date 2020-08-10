@@ -34,23 +34,23 @@
 		<thead>
 			<tr>
 				<th>Nome</th>
-				<th>Idade</th>
-				<th>Data Cadastro</th>
+				<th>CPF</th>
+				<th>Endereco</th>
 			</tr>
 
 		</thead>
 		<tbody>
 			<tr th:each="contato: ${contatos}">
 				<td>
-					<a th:href="${(#mvc.url('CC#detalhesCliente').arg(0, contato.id)).build()}">
+					<a th:href="${(#mvc.url('CC#detalhesCliente').arg(0, contato.cpf)).build()}">
 						<span th:text="${contato.nome}"></span>
 					</a>
 				</td>
 				<td>
-					<span th:text="${contato.idade}"></span>
+					<span th:text="${contato.cpf}"></span>
 				</td>
 				<td>
-					<span th:text="${contato.dataCadastro}"></span>
+					<span th:text="${contato.endereco}"></span>
 				</td>
 			</tr>
 		</tbody>
