@@ -24,10 +24,9 @@
 	
 	<div th:each="usuario :${contatos}" class="container" >
 		<div class="row">
-			<p>ID: <span th:text="${usuario.id}"></span></p>
 			<p>Nome: <span th:text="${usuario.nome}"></span></p>
-			<p>Idade: <span th:text="${usuario.idade}"></span></p>
-			<p>Data de Cadastro:<span th:text="${usuario.dataCadastro}"></span></p>
+			<p>Idade: <span th:text="${usuario.endereco}"></span></p>
+			<p>Data de Cadastro:<span th:text="${usuario.telefone}"></span></p>
 		</div>
 		
 		<th:block th:include="mensagemValidacao"></th:block>
