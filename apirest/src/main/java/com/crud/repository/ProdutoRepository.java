@@ -7,4 +7,5 @@ import com.crud.models.Produto;
 
 public interface ProdutoRepository extends CrudRepository<Produto, String> {
 	Iterable<Produto> findByContato(Contato contato);
+	Produto findByCodigo(int codigo);
 }

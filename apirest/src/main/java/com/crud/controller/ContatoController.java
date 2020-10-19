@@ -78,4 +78,13 @@ public class ContatoController {
 		return "redirect:/{cpf}";
 		
 	}
+	
+	@RequestMapping("/deletarContato")
+	public String deletarCliente(String cpf) {
+		Contato user = er.findByCpf(cpf);
+		er.delete(user);
+	
+		return "redirect:/contatos";
+	}
+	
 }

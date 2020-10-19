@@ -17,10 +17,15 @@
 </head>
 
 <body>
-	<h1>Lista de Clientes</h1>
-	<h3>
-		<a href="/contatos" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Lista de Clientes</a>
-	</h3>
+	<header id="header">	  	
+	  	<nav>
+		    <div class="nav-wrapper">
+		      <ul id="nav-mobile" class="left hide-on-med-and-down">
+		        <li><a href="/contatos">Lista de Clientes</a></li>
+		      </ul>
+		    </div>
+  		</nav>
+	</header>
 	
 	<div th:each="usuario :${contatos}" class="container" >
 		<div class="row">
@@ -48,6 +53,9 @@
 				</div>
 				<div class="input-field col s3">
 					Descricao:<p><span th:text="${produto.descricao}"></span></p>
+				</div>
+				<div>
+					<a th:href="${(#mvc.url('PC#deletarProduto').arg(0, produto.codigo)).build()}"><i class="material-icons left">delete</i></a>
 				</div>
 			</div>
 		</div>
